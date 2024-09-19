@@ -1,6 +1,15 @@
-CC = g++
-CFLAGS = -Wall -Wextra -g
-TARGET = employee
+#/**
+ #* @file Makefile
+ #* @author Tucker Brown
+ #* @date 2024-09-18
+ #* @brief Creating the contents of the makefile to properly run all of the files
+ #* 
+ #* The makefile is responsible for compiling all code from the various files and cleaning the directory
+ #*/
+
+CC = g++ #the compiler
+CFLAGS = -Wall -Wextra -g #compiles the contents with warnings and flags
+TARGET = employee #the target executable that the compiler is running
 
 all:	$(TARGET)
 
