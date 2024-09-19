@@ -1,24 +1,24 @@
 CC = g++
-CFLAGS = -c -Wall -Wextra -g
-TARGET = Employee.o Officer.o Supervisor.o main.o
+CFLAGS = -Wall -Wextra -g
+TARGET = employee
 
-all:	employee
+all:	$(TARGET)
 
-employee:	Employee.o Officer.o Supervisor.o main.o
-	$(CC) $(CFLAGS) -o employees $(TARGET)
+$(TARGET):	Employee.o Officer.o Supervisor.o main.o
+	$(CC) $(CFLAGS) -o $(TARGET) Employee.o Officer.o Supervisor.o main.o 
 
 Employee.o:	Employee.cpp Employee.h
-	$(CC) $(CFLAGS) Employee.cpp
+	$(CC) $(CFLAGS) -c Employee.cpp
 
 Officer.o:	Officer.cpp Officer.h
-	$(CC) $(CFLAGS) Officer.cpp
+	$(CC) $(CFLAGS) -c Officer.cpp
 
 Supervisor.o:	Supervisor.cpp Supervisor.h
-	$(CC) $(CFLAGS) Supervisor.cpp
+	$(CC) $(CFLAGS) -c Supervisor.cpp
 
 main.o:	main.cpp Employee.h Officer.h Supervisor.h
-	$(CC) $(CFLAGS) main.cpp
+	$(CC) $(CFLAGS) -c main.cpp
 
 clean:
-	$(RM) *.o *~
+	$(RM) *.o *~ $(TARGET)
 
